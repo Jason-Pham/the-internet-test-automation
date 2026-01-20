@@ -13,3 +13,8 @@ log.html
 report.html
 output.xml
 screenshots/
+
+# Ignore dependency directories
+package-lock.json
+playwright-log.txt
+report.html
