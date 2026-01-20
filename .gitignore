@@ -1,0 +1,15 @@
+# Ignore the virtual environment directory
+.venv/
+venv/
+env/
+
+# Ignore compiled python files
+__pycache__/
+*.pyc
+
+# Ignore Robot Framework results (we don't want these cluttering the repo)
+results/
+log.html
+report.html
+output.xml
+screenshots/
