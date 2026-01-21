@@ -6,7 +6,7 @@ Resource    ../variables/global_variables.robot
 *** Keywords ***
 Open Browser To Login Page
     [Documentation]    Opens the browser and navigates to the login URL.
-    Open Browser    ${URL}    chromium    headless=True
+    Open Browser    ${URL}    chromium    headless=${HEADLESS}
     New Page       ${URL}
 
 Submit Credentials
