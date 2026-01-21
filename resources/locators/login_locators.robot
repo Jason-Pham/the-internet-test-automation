@@ -1,4 +1,5 @@
 *** Variables ***
-${username_field}    id=username
-${password_field}    id=password
-${login_button}      id=login
+${username_textfield}    id=username
+${password_textfield}    id=password
+${submit_button}      button[type='submit']
+${verify_login_success_element}    id=flash
