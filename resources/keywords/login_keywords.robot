@@ -1,20 +1,22 @@
 *** Settings ***
-Library      SeleniumLibrary
+Library      Browser
 Resource    ../locators/login_locators.robot
 Resource    ../variables/global_variables.robot
 
 *** Keywords ***
-Login To Application
-    [Documentation]    Logs in to the application using the provided username and password.
-    Input Text    ${username_field}    ${USERNAME}
-    Input Text    ${password_field}    ${PASSWORD}
-    Click Button  ${login_button}
-    Wait Until Page Contains Element    ${dashboard_element}    timeout=10s
+Open Browser To Login Page
+    [Documentation]    Opens the browser and navigates to the login URL.
+    Open Browser    ${URL}    chromium    headless=False
+    New Page       ${URL}
+
+Submit Credentials
+    [Arguments]    ${username}    ${password}
+    [Documentation]    Fills in the login form and clicks submit.
+
+    Fill Text    id=username    ${username}
+    Fill Text    id=password    ${password}
+    Click    button[type='submit']
 
 Verify Login Success
-    [Documentation]    Verifies that the user is successfully logged in.
-    Page Should Contain Element    ${dashboard_element}
-
-Verify Login Failure
-    [Documentation]    Verifies that the login attempt failed.
-    Page Should Contain Element    ${error_message_element}
+    [Documentation]    Checks for the "flash" element that appears after login.
+    Get Text    id=flash    *=    You logged into a secure area!

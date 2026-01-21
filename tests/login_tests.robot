@@ -1,6 +1,7 @@
 *** Settings ***
 Library   Browser
 Resource    ../resources/variables/global_variables.robot
+Resource    ../resources/keywords/login_keywords.robot
 
 *** Test Cases ***
 Login With Valid Credentials
@@ -8,21 +9,5 @@ Login With Valid Credentials
     Open Browser To Login Page
     Submit Credentials    tomsmith    SuperSecretPassword!
     Verify Login Success
-
-*** Keywords ***
-Open Browser To Login Page
-    [Documentation]    Opens the browser and navigates to the login URL.
-    Open Browser    ${URL}    chromium    headless=False
-    New Page       ${URL}
-
-Submit Credentials
-    [Arguments]    ${username}    ${password}
-    [Documentation]    Fills in the login form and clicks submit.
-
-    Fill Text    id=username    ${username}
-    Fill Text    id=password    ${password}
-    Click    button[type='submit']
-
-Verify Login Success
-    [Documentation]    Checks for the "flash" element that appears after login.
-    Get Text    id=flash    *=    You logged into a secure area!
+    Close Browser
+    
