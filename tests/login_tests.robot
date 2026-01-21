@@ -1,8 +1,6 @@
 *** Settings ***
 Library   Browser
-
-*** Variables ***
-${URL}    https://the-internet.herokuapp.com/login
+Resource    ../resources/variables/global_variables.robot
 
 *** Test Cases ***
 Login With Valid Credentials
@@ -14,7 +12,7 @@ Login With Valid Credentials
 *** Keywords ***
 Open Browser To Login Page
     [Documentation]    Opens the browser and navigates to the login URL.
-    New Browser    chromium    headless=False
+    Open Browser    ${URL}    chromium    headless=False
     New Page       ${URL}
 
 Submit Credentials
