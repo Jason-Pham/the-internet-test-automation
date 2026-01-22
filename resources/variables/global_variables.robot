@@ -1,3 +1,3 @@
 *** Variables ***
-${URL}    https://the-internet.herokuapp.com/login
+${URL_Login}    https://the-internet.herokuapp.com/login
 ${HEADLESS}   True
