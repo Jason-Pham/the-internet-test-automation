@@ -1,2 +1,4 @@
 robotframework
 robotframework-browser
+robotframework-robocop
+robotframework-tidy

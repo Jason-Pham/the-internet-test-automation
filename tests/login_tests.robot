@@ -1,7 +1,10 @@
 *** Settings ***
-Library   Browser
-Resource    ../resources/variables/global_variables.robot
-Resource    ../resources/keywords/login_keywords.robot
+Documentation       Login Tests
+
+Library             Browser
+Resource            ../resources/variables/global_variables.resource
+Resource            ../resources/keywords/login_keywords.resource
+
 
 *** Test Cases ***
 Login With Valid Credentials
@@ -10,4 +13,3 @@ Login With Valid Credentials
     Submit Credentials    ${USERNAME}    ${PASSWORD}
     Verify Login Success
     Close Browser
-    
