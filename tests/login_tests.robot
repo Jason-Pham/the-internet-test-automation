@@ -7,7 +7,7 @@ Resource    ../resources/keywords/login_keywords.robot
 Login With Valid Credentials
     [Documentation]    Verifies that a user can log in with valid credentials.
     Open Browser To Login Page
-    Submit Credentials    tomsmith    SuperSecretPassword!
+    Submit Credentials    ${USERNAME}    ${PASSWORD}
     Verify Login Success
     Close Browser
     
