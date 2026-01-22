@@ -9,6 +9,7 @@ Resource            ../resources/keywords/login_keywords.resource
 *** Test Cases ***
 Login With Valid Credentials
     [Documentation]    Verifies that a user can log in with valid credentials.
+    [Tags]    smoke
     Open Browser To Login Page
     Submit Credentials    ${USERNAME}    ${PASSWORD}
     Verify Login Success
