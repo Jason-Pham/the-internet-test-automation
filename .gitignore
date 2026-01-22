@@ -13,9 +13,9 @@ log.html
 report.html
 output.xml
 screenshots/
+interactive_console_output.xml
 
 # Ignore dependency directories
 package-lock.json
 playwright-log.txt
 report.html
-interactive_console_output.xml
