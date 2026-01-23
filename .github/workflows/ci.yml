@@ -32,7 +32,7 @@ jobs:
         run: robocop check .
         
       - name: Run Tests (Parallel)
-        run: pabot --testlevelsplit -d results --variablefile resources/environments/dev.yaml --variable HEADLESS:True tests/
+        run: pabot --testlevelsplit -d results --variablefile resources/environments/prod.yaml --variable HEADLESS:True tests/
         
       - name: Upload Report
         if: always()

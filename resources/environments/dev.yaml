@@ -1,4 +1,4 @@
 # Dev Environment Configuration
-URL_LOGIN: https://the-internet.herokuapp.com/login
-USERNAME: tomsmith
-PASSWORD: SuperSecretPassword!
+URL_LOGIN: https://dev.the-internet.herokuapp.com/login
+USERNAME: dev_user
+PASSWORD: DevPassword123!
