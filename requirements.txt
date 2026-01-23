@@ -3,3 +3,4 @@ robotframework-browser
 robotframework-robocop
 robotframework-tidy
 robotframework-pabot
+allure-robotframework

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  tests:
+    build: .
+    volumes:
+      - ./results:/app/results
+      - ./tests:/app/tests
+      - ./resources:/app/resources
+    environment:
+      - HEADLESS=True
+    command: pabot --testlevelsplit --outputdir results --variablefile resources/environments/prod.yaml tests/

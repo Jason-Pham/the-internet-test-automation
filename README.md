@@ -39,6 +39,27 @@ To run the login tests:
 robot tests/login_tests.robot
 ```
 
+
+
+To generate beautiful reports, you first need to install Allure.
+
+**Mac (Homebrew):**
+```bash
+brew install allure
+```
+
+**Generate Reports:**
+
+
+1.  Run tests with Allure listener:
+    ```bash
+    robot --listener allure_robotframework;allure_results tests/
+    ```
+2.  Serve the report:
+    ```bash
+    allure serve allure_results
+    ```
+
 ### Run in Parallel (Faster)
 
 To run tests in parallel using Pabot:
@@ -46,6 +67,16 @@ To run tests in parallel using Pabot:
 ```bash
 pabot --testlevelsplit tests/
 ```
+
+### Run with Docker (Recommended)
+
+To run tests in a containerized environment (ensures consistency):
+
+```bash
+# Run tests
+docker-compose up --build
+```
+
 
 ## Structure
 
