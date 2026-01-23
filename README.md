@@ -53,7 +53,7 @@ brew install allure
 
 1.  Run tests with Allure listener:
     ```bash
-    robot --listener allure_robotframework;allure_results tests/
+    robot --listener allure_robotframework:allure_results tests/
     ```
 2.  Serve the report:
     ```bash

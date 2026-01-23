@@ -34,7 +34,7 @@ jobs:
         run: robocop check .
         
       - name: Run Tests (Parallel)
-        run: pabot --testlevelsplit --listener allure_robotframework;results/allure -d results --variablefile resources/environments/prod.yaml --variable HEADLESS:True tests/
+        run: pabot --testlevelsplit --listener allure_robotframework:results/allure -d results --variablefile resources/environments/prod.yaml --variable HEADLESS:True tests/
         
       - name: Upload Report
         if: always()
