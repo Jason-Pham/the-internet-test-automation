@@ -5,12 +5,19 @@ Library             Browser
 Resource            ../resources/variables/global_variables.resource
 Resource            ../resources/keywords/login_keywords.resource
 
+Test Template       Login Scenario
+
 
 *** Test Cases ***
 Login With Valid Credentials
-    [Documentation]    Verifies that a user can log in with valid credentials.
     [Tags]    smoke
-    Open Browser To Login Page
-    Submit Credentials    ${USERNAME}    ${PASSWORD}
-    Verify Login Success
-    Close Browser
+    ${USERNAME}    ${PASSWORD}    You logged into a secure area!
+Login With Invalid Username
+    [Tags]    regression
+    invalid_user    ${PASSWORD}    Your username is invalid!
+Login With Invalid Password
+    [Tags]    regression
+    ${USERNAME}    invalid_pass    Your password is invalid!
+
+
+

@@ -19,3 +19,6 @@ interactive_console_output.xml
 package-lock.json
 playwright-log.txt
 report.html
+.pabotsuitenames
+.pabot_results
+pabot_results
