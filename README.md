@@ -54,3 +54,19 @@ pabot --testlevelsplit tests/
     -   `keywords/`: Higher-level keywords.
     -   `locators/`: UI element locators.
     -   `variables/`: Global configuration and test data.
+    -   `environments/`: Environment-specific config files (dev, staging, prod).
+
+## Environment Configuration
+
+To run tests against different environments:
+
+```bash
+# Dev (default)
+pabot --testlevelsplit --variablefile resources/environments/dev.yaml tests/
+
+# Staging
+pabot --testlevelsplit --variablefile resources/environments/staging.yaml tests/
+
+# Production
+pabot --testlevelsplit --variablefile resources/environments/prod.yaml tests/
+```

@@ -1,0 +1,4 @@
+# Production Environment Configuration
+URL_LOGIN: https://the-internet.herokuapp.com/login
+USERNAME: prod_user
+PASSWORD: ProdPassword456!

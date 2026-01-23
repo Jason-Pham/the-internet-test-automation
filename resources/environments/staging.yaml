@@ -1,0 +1,4 @@
+# Staging Environment Configuration
+URL_LOGIN: https://staging.the-internet.herokuapp.com/login
+USERNAME: staging_user
+PASSWORD: StagingPassword123!
