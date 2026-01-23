@@ -18,6 +18,3 @@ Login With Invalid Username
 Login With Invalid Password
     [Tags]    regression
     ${USERNAME}    invalid_pass    Your password is invalid!
-
-
-

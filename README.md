@@ -39,6 +39,14 @@ To run the login tests:
 robot tests/login_tests.robot
 ```
 
+### Run in Parallel (Faster)
+
+To run tests in parallel using Pabot:
+
+```bash
+pabot --testlevelsplit tests/
+```
+
 ## Structure
 
 -   `tests/`: Contains test suites (`.robot` files).
