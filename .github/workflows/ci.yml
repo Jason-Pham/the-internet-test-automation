@@ -31,8 +31,8 @@ jobs:
       - name: Lint (Robocop)
         run: robocop check .
         
-      - name: Run Tests
-        run: robot -d results --variable HEADLESS:True tests/
+      - name: Run Tests (Parallel)
+        run: pabot --testlevelsplit -d results --variable HEADLESS:True tests/
         
       - name: Upload Report
         if: always()
