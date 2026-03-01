@@ -27,3 +27,6 @@ pabot_results
 # Allure
 allure_results/
 allure-report/
+
+# Claude Code session settings (machine-specific)
+.claude/settings.json
