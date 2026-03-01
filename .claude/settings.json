@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/admin/Workspace/github_personal/**)",
+      "Read(//Users/admin/Workspace/**)",
+      "Bash(git checkout -b feature/industry-test-agents)",
+      "Bash(git -C /Users/admin/Workspace/github_personal/the-internet-test-automation status)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.pubnub.com)",
+      "Bash(chmod +x /Users/admin/Workspace/github_personal/the-internet-test-automation/.git/hooks/pre-push)",
+      "Bash(gh pr list --head feature/industry-test-agents)",
+      "Bash(git add .gitignore README.md .claude/)"
+    ],
+    "additionalDirectories": [
+      "/Users/admin/Workspace/github_personal/the-internet-test-automation/.claude",
+      "/Users/admin/.claude/projects/-Users-admin-Workspace-github-personal-the-internet-test-automation",
+      "/Users/admin/Workspace/github_personal/the-internet-test-automation/.claude/agents"
+    ]
+  }
+}

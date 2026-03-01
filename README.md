@@ -87,6 +87,40 @@ docker-compose up --build
     -   `variables/`: Global configuration and test data.
     -   `environments/`: Environment-specific config files (dev, staging, prod).
 
+## Pre-Push Quality Gates
+
+A `pre-push` git hook runs automatically on every `git push`. **Gates 1–3 block the push on failure. Gate 4 warns but does not block.**
+
+| Gate | What it checks | Blocks push? |
+|------|---------------|--------------|
+| **Robocop lint** | Naming conventions, `[Documentation]` tags on every keyword, line length | Yes |
+| **Robot dry run** | Import resolution, syntax errors across all test files | Yes |
+| **Full test suite** | Every test (all tags: smoke, regression, security, etc.) run in parallel headless | Yes |
+| **Docs check** | Warns if `.robot`/`.resource` files changed without a `README.md` update | No (warning only) |
+
+### First-time setup
+
+After cloning, make the hook executable:
+
+```bash
+chmod +x .git/hooks/pre-push
+```
+
+### Manual pre-push checks
+
+Run the gates individually before pushing:
+
+```bash
+# Gate 1 — lint
+robocop check .
+
+# Gate 2 — syntax
+robot --dryrun tests/
+
+# Gate 3 — full suite
+pabot --testlevelsplit --variablefile resources/environments/prod.yaml --variable HEADLESS:True -d results tests/
+```
+
 ## Environment Configuration
 
 To run tests against different environments:
