@@ -2,6 +2,7 @@
 .venv/
 venv/
 env/
+.DS_Store
 
 # Ignore compiled python files
 __pycache__/
@@ -26,3 +27,6 @@ pabot_results
 # Allure
 allure_results/
 allure-report/
+
+# Claude
+.claude/
