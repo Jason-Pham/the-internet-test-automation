@@ -29,4 +29,4 @@ allure_results/
 allure-report/
 
 # Claude
-.claude/
+.claude/settings.json
