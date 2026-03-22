@@ -30,3 +30,5 @@ allure-report/
 
 # Claude
 .claude/settings.json
+
+# Remove me
