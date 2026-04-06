@@ -8,18 +8,20 @@ Resource            ../variables/global_variables.resource
 
 *** Keywords ***
 Open Challenging DOM Page
-    [Documentation]    Opens the browser and navigates to the challenging DOM page.
+    [Documentation]    Opens the browser and navigates to the challenging DOM page. Retries on slow heroku responses.
+    Wait Until Keyword Succeeds    3x    5s    Navigate To Challenging DOM And Verify
+
+Navigate To Challenging DOM And Verify
+    [Documentation]    Navigates to the challenging DOM page and verifies content loaded.
     New Page    ${URL_CHALLENGING_DOM}
-    Wait For Load State    load    timeout=30s
+    Wait For Elements State    ${TABLE_ROWS}:first-child    visible    timeout=15s
 
 Click Blue Button
     [Documentation]    Clicks the blue (primary) button.
-    Wait For Elements State    ${BLUE_BUTTON}    visible    timeout=30s
     Click    ${BLUE_BUTTON}
 
 Click Red Button
     [Documentation]    Clicks the red (alert) button.
-    Wait For Elements State    ${RED_BUTTON}    visible    timeout=30s
     Click    ${RED_BUTTON}
 
 Verify Table Has Rows
@@ -30,5 +32,4 @@ Verify Table Has Rows
 Verify Table Header Text
     [Documentation]    Verifies the first column header has the expected text.
     [Arguments]    ${expected_text}
-    Wait For Elements State    ${TABLE_HEADER}    visible    timeout=30s
     Get Text    ${TABLE_HEADER}    ==    ${expected_text}
