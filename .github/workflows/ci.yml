@@ -85,6 +85,22 @@ jobs:
             ${{ matrix.exclude-tags }} \
             tests/
 
+      - name: Print Failed Tests
+        if: failure()
+        run: |
+          python3 -c "
+          import xml.etree.ElementTree as ET, sys
+          tree = ET.parse('results/output.xml')
+          for test in tree.getroot().iter('test'):
+              s = test.find('status')
+              if s is not None and s.get('status') == 'FAIL':
+                  print(f'FAIL: {test.get(\"name\")}')
+                  for m in test.iter('msg'):
+                      if m.text and any(k in (m.text or '') for k in ['Error','Timeout','!=','waiting','strict']):
+                          print(f'  {m.text[:300]}')
+                  print()
+          "
+
       - name: Upload Report
         if: always()
         uses: actions/upload-artifact@v4
