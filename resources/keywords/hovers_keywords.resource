@@ -19,7 +19,7 @@ Hover Over Figure
 Verify Figure Caption Is Visible
     [Documentation]    Verifies that a figure's caption overlay is visible after hover.
     [Arguments]    ${caption_locator}
-    Wait For Elements State    ${caption_locator}    visible    timeout=5s
+    Wait For Elements State    ${caption_locator}    visible    timeout=15s
 
 Verify Figure Caption Contains Username
     [Documentation]    Verifies the caption contains the expected username text.

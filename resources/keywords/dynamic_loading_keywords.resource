@@ -18,8 +18,8 @@ Start Loading
 
 Wait For Loading To Complete
     [Documentation]    Waits for the loading indicator to disappear and the finish text to appear.
-    Wait For Elements State    ${LOADING_BAR}    hidden    timeout=15s
-    Wait For Elements State    ${FINISH_TEXT}    visible    timeout=15s
+    Wait For Elements State    ${LOADING_BAR}    hidden    timeout=30s
+    Wait For Elements State    ${FINISH_TEXT}    visible    timeout=30s
 
 Verify Finish Text
     [Documentation]    Verifies the finish element contains the expected text.

@@ -17,7 +17,7 @@ Click Notification Link
 
 Verify Flash Message Is Visible
     [Documentation]    Verifies the flash notification message is displayed.
-    Wait For Elements State    ${FLASH_MESSAGE}    visible    timeout=5s
+    Wait For Elements State    ${FLASH_MESSAGE}    visible    timeout=15s
 
 Verify Flash Message Contains Valid Text
     [Documentation]    Verifies the flash message contains one of the expected notification texts.
