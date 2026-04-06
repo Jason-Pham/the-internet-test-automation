@@ -10,6 +10,8 @@ Resource            ../variables/global_variables.resource
 Open Dynamic Controls Page
     [Documentation]    Opens the browser and navigates to the dynamic controls page.
     New Page    ${URL_DYNAMIC_CONTROLS}
+    Wait For Load State    domcontentloaded    timeout=30s
+    Wait For Elements State    ${TOGGLE_CHECKBOX_BUTTON}    visible    timeout=15s
 
 Toggle Checkbox And Wait
     [Documentation]    Clicks the toggle button for the checkbox and waits for the action to complete.
