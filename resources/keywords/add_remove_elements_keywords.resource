@@ -13,6 +13,7 @@ Open Add Remove Elements Page
 
 Add Element
     [Documentation]    Clicks the Add Element button to add a Delete button.
+    Wait For Elements State    ${ADD_ELEMENT_BUTTON}    visible    timeout=20s
     Click    ${ADD_ELEMENT_BUTTON}
 
 Remove Element

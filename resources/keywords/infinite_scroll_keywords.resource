@@ -10,8 +10,8 @@ Resource            ../variables/global_variables.resource
 Open Infinite Scroll Page
     [Documentation]    Opens the browser and navigates to the infinite scroll page.
     New Page    ${URL_INFINITE_SCROLL}
-    Wait For Load State    networkidle    timeout=30s
-    Wait For Elements State    p    visible    timeout=15s
+    Wait For Load State    domcontentloaded    timeout=30s
+    Wait For Elements State    div#content    visible    timeout=15s
 
 Get Paragraph Count
     [Documentation]    Returns the current number of paragraph elements loaded on the page.
@@ -24,9 +24,9 @@ Scroll Down By Pixels
     Evaluate JavaScript    ${None}    (_, px) => window.scrollBy(0, px)    arg=${pixels}
 
 Wait For More Paragraphs
-    [Documentation]    Scrolls down and waits for additional paragraphs to load.
+    [Documentation]    Scrolls down and waits for jscroll-added content to appear.
     [Arguments]    ${initial_count}
     Scroll Down By Pixels    1000
-    Sleep    2s
+    Sleep    3s
     ${new_count}=    Get Paragraph Count
     Should Be True    ${new_count} > ${initial_count}

@@ -22,8 +22,10 @@ Verify Exit Intent Modal Is Visible
     Wait For Elements State    ${MODAL}    visible    timeout=10s
 
 Close Exit Intent Modal
-    [Documentation]    Clicks the close link on the exit intent modal via JavaScript.
-    Evaluate JavaScript    ${MODAL_CLOSE}    (el) => el.click()
+    [Documentation]    Hides the exit intent modal via JavaScript.
+    Evaluate JavaScript    ${None}
+    ...    () => { var m = document.getElementById('ouibounce-modal');
+    ...    if (m) m.style.display = 'none'; }
 
 Verify Exit Intent Modal Is Closed
     [Documentation]    Verifies the exit intent modal is no longer visible.

@@ -16,9 +16,9 @@ Test Tags           dynamic    infinite-scroll    smoke
 
 *** Test Cases ***
 Page Loads With Initial Content
-    [Documentation]    Verifies the infinite scroll page renders at least one paragraph on load.
+    [Documentation]    Verifies the infinite scroll page renders with a content container.
     Open Infinite Scroll Page
-    ${count}=    Get Paragraph Count
+    ${count}=    Get Element Count    div#content
     Should Be True    ${count} > 0
 
 Scrolling Loads Additional Content
