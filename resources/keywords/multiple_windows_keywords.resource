@@ -9,16 +9,12 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Multiple Windows Page
     [Documentation]    Opens the browser and navigates to the multiple windows page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_MULTIPLE_WINDOWS}
 
 Click New Window Link And Switch
     [Documentation]    Clicks the "Click Here" link and switches to the newly opened page.
-    ${new_page}=    Promise To Wait For Popup
     Click    ${NEW_WINDOW_LINK}
-    ${popup}=    Wait For    ${new_page}
-    Switch Page    ${popup}
+    Switch Page    NEW    timeout=10s
 
 Verify New Window Heading
     [Documentation]    Verifies the new window heading contains the expected text.

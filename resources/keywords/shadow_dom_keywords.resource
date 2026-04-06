@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Shadow DOM Page
     [Documentation]    Opens the browser and navigates to the shadow DOM page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_SHADOW_DOM}
 
 Get Shadow DOM Paragraph Text

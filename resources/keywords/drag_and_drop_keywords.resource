@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Drag And Drop Page
     [Documentation]    Opens the browser and navigates to the drag and drop page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_DRAG_AND_DROP}
 
 Drag Column A To Column B

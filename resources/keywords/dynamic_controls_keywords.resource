@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Dynamic Controls Page
     [Documentation]    Opens the browser and navigates to the dynamic controls page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_DYNAMIC_CONTROLS}
 
 Toggle Checkbox And Wait

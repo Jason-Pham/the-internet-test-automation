@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Typos Page
     [Documentation]    Opens the browser and navigates to the typos page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_TYPOS}
 
 Get Second Paragraph Text

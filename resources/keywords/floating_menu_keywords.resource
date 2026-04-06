@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Floating Menu Page
     [Documentation]    Opens the browser and navigates to the floating menu page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_FLOATING_MENU}
 
 Scroll To Bottom Of Page

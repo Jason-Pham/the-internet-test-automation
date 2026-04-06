@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open WYSIWYG Editor Page
     [Documentation]    Opens the browser and navigates to the WYSIWYG editor page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_WYSIWYG_EDITOR}
 
 Clear And Type In Editor

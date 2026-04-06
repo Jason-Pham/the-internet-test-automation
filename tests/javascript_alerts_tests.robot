@@ -47,6 +47,6 @@ JS Prompt Empty Returns Null
     [Documentation]    Verifies dismissing a JS prompt dialog shows null in the result.
     [Tags]    regression
     Open JavaScript Alerts Page
-    Handle Alert    action=dismiss
+    Handle Future Dialogs    action=dismiss
     Click    ${PROMPT_BUTTON}
     Verify Result Text    You entered: null

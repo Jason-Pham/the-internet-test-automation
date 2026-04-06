@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Dropdown Page
     [Documentation]    Opens the browser and navigates to the dropdown page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_DROPDOWN}
 
 Select Dropdown Option

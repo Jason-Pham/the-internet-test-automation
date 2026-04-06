@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Status Codes Page
     [Documentation]    Opens the browser and navigates to the status codes page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_STATUS_CODES}
 
 Click Status Code Link

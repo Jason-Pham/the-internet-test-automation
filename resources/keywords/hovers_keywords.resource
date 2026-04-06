@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Hovers Page
     [Documentation]    Opens the browser and navigates to the hovers page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_HOVERS}
 
 Hover Over Figure

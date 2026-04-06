@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Nested Frames Page
     [Documentation]    Opens the browser and navigates to the nested frames page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_NESTED_FRAMES}
 
 Verify Frame Content

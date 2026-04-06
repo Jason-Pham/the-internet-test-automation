@@ -10,8 +10,6 @@ Resource            ../variables/global_variables.resource
 Open Dynamic Loading Page
     [Documentation]    Opens the browser and navigates to a dynamic loading example.
     [Arguments]    ${example_url}
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${example_url}
 
 Start Loading

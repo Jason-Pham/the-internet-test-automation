@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open File Upload Page
     [Documentation]    Opens the browser and navigates to the file upload page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_FILE_UPLOAD}
 
 Upload File

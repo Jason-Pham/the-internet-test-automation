@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Challenging DOM Page
     [Documentation]    Opens the browser and navigates to the challenging DOM page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_CHALLENGING_DOM}
 
 Click Blue Button

@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Exit Intent Page
     [Documentation]    Opens the browser and navigates to the exit intent page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_EXIT_INTENT}
 
 Trigger Exit Intent Via JavaScript

@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Frames Page
     [Documentation]    Opens the browser and navigates to the iframe page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_FRAMES}
 
 Clear Editor Content

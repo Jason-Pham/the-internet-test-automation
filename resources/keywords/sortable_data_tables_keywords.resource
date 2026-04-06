@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Sortable Data Tables Page
     [Documentation]    Opens the browser and navigates to the sortable data tables page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_TABLES}
 
 Sort Table By Column

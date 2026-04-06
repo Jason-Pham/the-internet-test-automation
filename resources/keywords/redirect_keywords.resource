@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Redirect Page
     [Documentation]    Opens the browser and navigates to the redirect page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_REDIRECT}
 
 Click Redirect Link

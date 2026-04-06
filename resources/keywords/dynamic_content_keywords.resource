@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Dynamic Content Page
     [Documentation]    Opens the browser and navigates to the dynamic content page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_DYNAMIC_CONTENT}
 
 Verify Content Rows Are Present

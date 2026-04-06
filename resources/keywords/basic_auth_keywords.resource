@@ -10,7 +10,6 @@ Resource            ../variables/global_variables.resource
 Open Basic Auth Page With Credentials
     [Documentation]    Opens the basic auth page supplying HTTP credentials via browser context.
     [Arguments]    ${username}=admin    ${password}=admin
-    New Browser    ${BROWSER}    headless=${HEADLESS}
     New Context    httpCredentials={"username": "${username}", "password": "${password}"}
     New Page    ${URL_BASIC_AUTH}
 

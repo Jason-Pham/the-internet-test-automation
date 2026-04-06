@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Add Remove Elements Page
     [Documentation]    Opens the browser and navigates to the add/remove elements page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_ADD_REMOVE_ELEMENTS}
 
 Add Element

@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Disappearing Elements Page
     [Documentation]    Opens the browser and navigates to the disappearing elements page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_DISAPPEARING_ELEMENTS}
 
 Verify Nav Menu Is Visible

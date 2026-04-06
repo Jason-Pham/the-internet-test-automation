@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Entry Ad Page
     [Documentation]    Opens the browser and navigates to the entry ad page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_ENTRY_AD}
 
 Verify Modal Is Visible

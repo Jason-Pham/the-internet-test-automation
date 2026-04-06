@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Infinite Scroll Page
     [Documentation]    Opens the browser and navigates to the infinite scroll page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_INFINITE_SCROLL}
 
 Get Paragraph Count

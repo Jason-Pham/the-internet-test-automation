@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Horizontal Slider Page
     [Documentation]    Opens the browser and navigates to the horizontal slider page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_HORIZONTAL_SLIDER}
 
 Set Slider Value Via JavaScript

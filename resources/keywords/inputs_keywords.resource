@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Inputs Page
     [Documentation]    Opens the browser and navigates to the inputs page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_INPUTS}
 
 Type Number In Input

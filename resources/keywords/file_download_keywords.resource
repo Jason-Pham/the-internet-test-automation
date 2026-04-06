@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open File Download Page
     [Documentation]    Opens the browser and navigates to the file download page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_FILE_DOWNLOAD}
 
 Verify Download Links Are Present

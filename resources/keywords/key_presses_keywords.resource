@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Key Presses Page
     [Documentation]    Opens the browser and navigates to the key presses page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_KEY_PRESSES}
 
 Press Key In Input

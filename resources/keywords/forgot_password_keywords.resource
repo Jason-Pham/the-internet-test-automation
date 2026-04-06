@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Forgot Password Page
     [Documentation]    Opens the browser and navigates to the forgot password page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_FORGOT_PASSWORD}
 
 Submit Email For Password Retrieval

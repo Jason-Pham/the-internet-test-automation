@@ -9,8 +9,6 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Broken Images Page
     [Documentation]    Opens the browser and navigates to the broken images page.
-    New Browser    ${BROWSER}    headless=${HEADLESS}
-    New Context
     New Page    ${URL_BROKEN_IMAGES}
 
 Get Broken Image Count
