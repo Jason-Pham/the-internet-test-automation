@@ -18,6 +18,7 @@ Submit Email For Password Retrieval
     Click    ${RETRIEVE_BUTTON}
 
 Verify Confirmation Message
-    [Documentation]    Verifies the page navigated away from the forgot password form.
+    [Documentation]    Verifies the page responds to the form submission.
+    Wait For Load State    load    timeout=10s
     ${url}=    Get Url
-    Should Not Contain    ${url}    forgot_password
+    Should Contain    ${url}    email_sent

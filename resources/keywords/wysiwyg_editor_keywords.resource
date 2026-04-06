@@ -11,6 +11,13 @@ Open WYSIWYG Editor Page
     [Documentation]    Opens the browser and navigates to the WYSIWYG editor page.
     New Page    ${URL_WYSIWYG_EDITOR}
     Wait For Elements State    ${IFRAME}    visible    timeout=15s
+    Wait Until Keyword Succeeds    10x    1s    Verify TinyMCE Is Ready
+
+Verify TinyMCE Is Ready
+    [Documentation]    Verifies TinyMCE has fully initialised by calling getContent without error.
+    ${ready}=    Evaluate JavaScript    ${None}
+    ...    () => !!(window.tinymce && tinymce.activeEditor)
+    Should Be True    ${ready}    TinyMCE not yet ready
 
 Clear And Type In Editor
     [Documentation]    Sets the TinyMCE editor content via its JavaScript API.

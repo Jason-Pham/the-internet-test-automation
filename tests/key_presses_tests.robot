@@ -22,11 +22,11 @@ Key Press Input Is Present
     Wait For Elements State    ${KEY_INPUT}    visible
 
 Press Enter Key
-    [Documentation]    Verifies pressing Enter is detected and the result shows RETURN.
+    [Documentation]    Verifies pressing Enter is detected and the result shows ENTER.
     [Tags]    smoke
     Open Key Presses Page
-    Press Key In Input    Return
-    Verify Key Result    RETURN
+    Press Key In Input    Enter
+    Verify Key Result    ENTER
 
 Press Space Key
     [Documentation]    Verifies pressing Space is detected and the result shows SPACE.

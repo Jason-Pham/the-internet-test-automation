@@ -11,6 +11,13 @@ Open Frames Page
     [Documentation]    Opens the browser and navigates to the iframe page.
     New Page    ${URL_FRAMES}
     Wait For Elements State    ${IFRAME}    visible    timeout=15s
+    Wait Until Keyword Succeeds    10x    1s    Verify TinyMCE Is Ready
+
+Verify TinyMCE Is Ready
+    [Documentation]    Verifies TinyMCE has fully initialised.
+    ${ready}=    Evaluate JavaScript    ${None}
+    ...    () => !!(window.tinymce && tinymce.activeEditor)
+    Should Be True    ${ready}    TinyMCE not yet ready
 
 Type In Editor
     [Documentation]    Sets TinyMCE editor content via its JavaScript API.

@@ -12,13 +12,17 @@ Open Shadow DOM Page
     New Page    ${URL_SHADOW_DOM}
 
 Get Shadow DOM Paragraph Text
-    [Documentation]    Returns the text content of a paragraph inside a shadow DOM host element.
-    [Arguments]    ${host_locator}
-    ${text}=    Get Text    ${host_locator} >> p
+    [Documentation]    Returns text from a paragraph inside a shadow DOM host element via JavaScript.
+    [Arguments]    ${nth}=1
+    ${text}=    Evaluate JavaScript    ${None}
+    ...    (_, n) => { var hosts = document.querySelectorAll('my-paragraph');
+    ...    var host = hosts[n - 1]; return host && host.shadowRoot
+    ...    ? host.shadowRoot.querySelector('p').textContent : ''; }
+    ...    arg=${nth}
     RETURN    ${text}
 
 Verify Shadow DOM Contains Text
     [Documentation]    Verifies a shadow DOM element's text contains the expected content.
-    [Arguments]    ${host_locator}    ${expected_text}
-    ${text}=    Get Shadow DOM Paragraph Text    ${host_locator}
+    [Arguments]    ${nth}    ${expected_text}
+    ${text}=    Get Shadow DOM Paragraph Text    ${nth}
     Should Contain    ${text}    ${expected_text}

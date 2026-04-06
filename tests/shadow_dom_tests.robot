@@ -24,9 +24,9 @@ Shadow DOM Page Loads
 First Shadow Host Contains Expected Text
     [Documentation]    Verifies the first shadow DOM element contains the expected paragraph text.
     Open Shadow DOM Page
-    Verify Shadow DOM Contains Text    ${SHADOW_HOST_1}    Let's have
+    Verify Shadow DOM Contains Text    1    Let's have
 
 Second Shadow Host Contains Expected Text
     [Documentation]    Verifies the second shadow DOM element contains expected paragraph text.
     Open Shadow DOM Page
-    Verify Shadow DOM Contains Text    ${SHADOW_HOST_2}    Inside a div
+    Verify Shadow DOM Contains Text    2    Inside a div
