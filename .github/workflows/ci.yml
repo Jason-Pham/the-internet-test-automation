@@ -24,13 +24,10 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install robotframework-robocop
 
       - name: Lint (Robocop)
         run: robocop check .
-
-      - name: Dry Run (Syntax Check)
-        run: python -m robot --dryrun --outputdir results/dryrun tests/
 
   e2e:
     name: E2E — ${{ matrix.browser-label }}
@@ -42,14 +39,13 @@ jobs:
         include:
           - browser: chromium
             browser-label: Chromium Browsers
-            install-deps: ''
+            webkit: false
           - browser: firefox
             browser-label: Firefox
-            install-deps: ''
+            webkit: false
           - browser: webkit
             browser-label: WebKit Browsers
-            install-deps: |
-              node $(python -c "import Browser, os; print(os.path.join(os.path.dirname(Browser.__file__), 'wrapper', 'node_modules', '.bin', 'playwright'))") install-deps webkit
+            webkit: true
 
     steps:
       - uses: actions/checkout@v4
@@ -69,7 +65,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           rfbrowser init
-          ${{ matrix.install-deps }}
+
+      - name: Install WebKit System Dependencies
+        if: matrix.webkit == true
+        run: |
+          node $(python -c "import Browser, os; print(os.path.join(os.path.dirname(Browser.__file__), 'wrapper', 'node_modules', '.bin', 'playwright'))") install-deps webkit
 
       - name: Run Tests — ${{ matrix.browser-label }}
         run: |
