@@ -3,7 +3,7 @@ Documentation       WYSIWYG Editor Locators
 
 
 *** Variables ***
-${IFRAME}              #mce_0_ifr
+${IFRAME}              [id="mce_0_ifr"]
 ${EDITOR_BODY}         body#tinymce
 ${EDITOR_CONTENT}      body#tinymce p
 ${BOLD_BUTTON}         button[aria-label='Bold']
