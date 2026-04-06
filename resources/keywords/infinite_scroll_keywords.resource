@@ -1,0 +1,32 @@
+*** Settings ***
+Documentation       Infinite Scroll Keywords
+
+Library             Browser
+Resource            ../locators/infinite_scroll_locators.resource
+Resource            ../variables/global_variables.resource
+
+
+*** Keywords ***
+Open Infinite Scroll Page
+    [Documentation]    Opens the browser and navigates to the infinite scroll page.
+    New Browser    ${BROWSER}    headless=${HEADLESS}
+    New Context
+    New Page    ${URL_INFINITE_SCROLL}
+
+Get Paragraph Count
+    [Documentation]    Returns the current number of paragraph elements loaded on the page.
+    ${count}=    Get Element Count    css:div.jscroll-added p, div#content p
+    RETURN    ${count}
+
+Scroll Down By Pixels
+    [Documentation]    Scrolls the page down by a given number of pixels.
+    [Arguments]    ${pixels}=500
+    Evaluate JavaScript    ${None}    (_, px) => window.scrollBy(0, px)    arg=${pixels}
+
+Wait For More Paragraphs
+    [Documentation]    Scrolls down and waits for additional paragraphs to load.
+    [Arguments]    ${initial_count}
+    Scroll Down By Pixels    1000
+    Sleep    2s
+    ${new_count}=    Get Paragraph Count
+    Should Be True    ${new_count} > ${initial_count}
