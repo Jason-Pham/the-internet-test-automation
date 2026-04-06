@@ -23,7 +23,7 @@ Verify Exit Intent Modal Is Visible
 
 Close Exit Intent Modal
     [Documentation]    Clicks the close link on the exit intent modal.
-    Click    ${MODAL_CLOSE}
+    Click    ${MODAL_CLOSE}    force=${True}
 
 Verify Exit Intent Modal Is Closed
     [Documentation]    Verifies the exit intent modal is no longer visible.

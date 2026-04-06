@@ -13,7 +13,7 @@ Open Disappearing Elements Page
 
 Verify Nav Menu Is Visible
     [Documentation]    Verifies the top navigation menu is visible on the page.
-    Wait For Elements State    ${NAV_MENU}    visible
+    Wait For Elements State    ${HOME_LINK}    visible
 
 Verify Home Link Exists
     [Documentation]    Verifies the Home link is always present in the nav.

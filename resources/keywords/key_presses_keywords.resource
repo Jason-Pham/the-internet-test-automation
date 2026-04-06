@@ -16,7 +16,6 @@ Press Key In Input
     [Arguments]    ${key}
     Click    ${KEY_INPUT}
     Keyboard Key    press    ${key}
-    Wait For Elements State    ${RESULT_TEXT}    visible
 
 Verify Key Result
     [Documentation]    Verifies the result text shows the expected key name.

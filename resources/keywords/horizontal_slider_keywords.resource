@@ -12,13 +12,9 @@ Open Horizontal Slider Page
     New Page    ${URL_HORIZONTAL_SLIDER}
 
 Set Slider Value Via JavaScript
-    [Documentation]    Sets the slider to a specific value using JavaScript and fires the change event.
+    [Documentation]    Sets the slider to a specific value using Fill Text (Playwright native).
     [Arguments]    ${value}
-    Evaluate JavaScript    ${None}
-    ...    (_, v) => { var el = document.querySelector("input[type='range']");
-    ...    el.value = v; el.dispatchEvent(new Event('change', {bubbles: true}));
-    ...    el.dispatchEvent(new Event('input', {bubbles: true})); }
-    ...    arg=${value}
+    Fill Text    ${SLIDER}    ${value}
 
 Verify Slider Display Value
     [Documentation]    Verifies the displayed range value matches the expected text.

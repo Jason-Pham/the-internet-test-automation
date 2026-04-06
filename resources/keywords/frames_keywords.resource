@@ -11,21 +11,23 @@ Open Frames Page
     [Documentation]    Opens the browser and navigates to the iframe page.
     New Page    ${URL_FRAMES}
     Wait For Elements State    ${IFRAME}    visible    timeout=15s
-    Wait Until Keyword Succeeds    10x    1s    Verify TinyMCE Is Ready
+    Wait Until Keyword Succeeds    15x    1s    Verify TinyMCE Is Initialized
 
-Verify TinyMCE Is Ready
-    [Documentation]    Verifies TinyMCE has fully initialised.
+Verify TinyMCE Is Initialized
+    [Documentation]    Verifies TinyMCE is fully initialised and its body is ready.
     ${ready}=    Evaluate JavaScript    ${None}
-    ...    () => !!(window.tinymce && tinymce.activeEditor)
-    Should Be True    ${ready}    TinyMCE not yet ready
+    ...    () => !!(window.tinymce && tinymce.activeEditor && tinymce.activeEditor.initialized)
+    Should Be True    ${ready}    TinyMCE not yet initialized
 
 Type In Editor
-    [Documentation]    Sets TinyMCE editor content via its JavaScript API.
+    [Documentation]    Sets TinyMCE editor content by manipulating the body DOM directly.
     [Arguments]    ${text}
-    Evaluate JavaScript    ${None}    (_, t) => tinymce.activeEditor.setContent(t)    arg=${text}
+    Evaluate JavaScript    ${None}
+    ...    (_, t) => tinymce.activeEditor.getBody().innerHTML = '<p>' + t + '</p>'    arg=${text}
 
 Verify Editor Content
     [Documentation]    Verifies the text content inside the TinyMCE iframe editor.
     [Arguments]    ${expected_text}
-    ${content}=    Evaluate JavaScript    ${None}    () => tinymce.activeEditor.getContent({format: 'text'})
+    ${content}=    Evaluate JavaScript    ${None}
+    ...    () => tinymce.activeEditor.getBody().innerText.trim()
     Should Contain    ${content}    ${expected_text}

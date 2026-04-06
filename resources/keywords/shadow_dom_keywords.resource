@@ -12,13 +12,9 @@ Open Shadow DOM Page
     New Page    ${URL_SHADOW_DOM}
 
 Get Shadow DOM Paragraph Text
-    [Documentation]    Returns text from a paragraph inside a shadow DOM host element via JavaScript.
+    [Documentation]    Returns text from a shadow DOM host element (Playwright auto-pierces).
     [Arguments]    ${nth}=1
-    ${text}=    Evaluate JavaScript    ${None}
-    ...    (_, n) => { var hosts = document.querySelectorAll('my-paragraph');
-    ...    var host = hosts[n - 1]; return host && host.shadowRoot
-    ...    ? host.shadowRoot.querySelector('p').textContent : ''; }
-    ...    arg=${nth}
+    ${text}=    Get Text    my-paragraph:nth-of-type(${nth})
     RETURN    ${text}
 
 Verify Shadow DOM Contains Text

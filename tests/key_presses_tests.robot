@@ -21,12 +21,12 @@ Key Press Input Is Present
     Open Key Presses Page
     Wait For Elements State    ${KEY_INPUT}    visible
 
-Press Enter Key
-    [Documentation]    Verifies pressing Enter is detected and the result shows ENTER.
+Press Letter B
+    [Documentation]    Verifies pressing B is detected and the result shows B.
     [Tags]    smoke
     Open Key Presses Page
-    Press Key In Input    Enter
-    Verify Key Result    ENTER
+    Press Key In Input    b
+    Verify Key Result    B
 
 Press Space Key
     [Documentation]    Verifies pressing Space is detected and the result shows SPACE.

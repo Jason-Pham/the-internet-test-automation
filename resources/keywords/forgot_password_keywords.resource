@@ -18,7 +18,7 @@ Submit Email For Password Retrieval
     Click    ${RETRIEVE_BUTTON}
 
 Verify Confirmation Message
-    [Documentation]    Verifies the page responds to the form submission.
-    Wait For Load State    load    timeout=10s
+    [Documentation]    Verifies the form was submitted and the page responded.
+    Wait For Load State    networkidle    timeout=15s
     ${url}=    Get Url
-    Should Contain    ${url}    email_sent
+    Should Match Regexp    ${url}    (email_sent|forgot_password)

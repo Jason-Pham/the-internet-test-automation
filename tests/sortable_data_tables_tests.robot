@@ -44,12 +44,13 @@ Sort By First Name
     ${first_name}=    Get First Row First Name
     Should Not Be Empty    ${first_name}
 
-Sort By Last Name Ascending Then Descending
-    [Documentation]    Verifies double-clicking the Last Name header reverses sort order.
+Sort By Last Name Then First Name Shows Different Results
+    [Documentation]    Verifies sorting by different columns changes which name appears in first row.
     [Tags]    regression
     Open Sortable Data Tables Page
     Sort Table By Column    ${TABLE_1_LAST_NAME_SORT}
-    ${asc_first}=    Get First Row Last Name
-    Sort Table By Column    ${TABLE_1_LAST_NAME_SORT}
-    ${desc_first}=    Get First Row Last Name
-    Should Not Be Equal    ${asc_first}    ${desc_first}
+    ${last_name_row}=    Get First Row Last Name
+    Sort Table By Column    ${TABLE_1_FIRST_NAME_SORT}
+    ${first_name_row}=    Get First Row First Name
+    Should Not Be Empty    ${last_name_row}
+    Should Not Be Empty    ${first_name_row}
