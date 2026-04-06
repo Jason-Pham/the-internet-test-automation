@@ -13,14 +13,15 @@ Open Add Remove Elements Page
     Wait For Load State    domcontentloaded    timeout=30s
 
 Add Element
-    [Documentation]    Clicks the Add Element button via JavaScript to bypass visibility checks.
+    [Documentation]    Clicks the Add Element button via JavaScript and waits for the DOM to update.
     Evaluate JavaScript    ${None}
     ...    () => { var btn = document.querySelector('[onclick*="addElement"]');
     ...    if (btn) btn.click(); }
+    Wait For Elements State    ${DELETE_BUTTON} >> nth=0    visible    timeout=10s
 
 Remove Element
     [Documentation]    Clicks the first visible Delete button.
-    Click    ${DELETE_BUTTON}
+    Click    ${DELETE_BUTTON} >> nth=0
 
 Verify Delete Button Count
     [Documentation]    Verifies the number of Delete buttons on the page.

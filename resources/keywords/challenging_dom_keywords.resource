@@ -10,6 +10,8 @@ Resource            ../variables/global_variables.resource
 Open Challenging DOM Page
     [Documentation]    Opens the browser and navigates to the challenging DOM page.
     New Page    ${URL_CHALLENGING_DOM}
+    Wait For Load State    domcontentloaded    timeout=30s
+    Wait For Elements State    ${BLUE_BUTTON}    visible    timeout=15s
 
 Click Blue Button
     [Documentation]    Clicks the blue (primary) button.

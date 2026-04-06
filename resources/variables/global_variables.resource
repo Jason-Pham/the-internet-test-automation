@@ -6,7 +6,7 @@ Documentation       Global Variables
 ${BASE_URL}                     https://the-internet.herokuapp.com
 ${URL_LOGIN}                    ${BASE_URL}/login
 ${URL_ABTEST}                   ${BASE_URL}/abtest
-${URL_ADD_REMOVE_ELEMENTS}      ${BASE_URL}/add_remove_elements
+${URL_ADD_REMOVE_ELEMENTS}      ${BASE_URL}/add_remove_elements/
 ${URL_BASIC_AUTH}               ${BASE_URL}/basic_auth
 ${URL_BROKEN_IMAGES}            ${BASE_URL}/broken_images
 ${URL_CHALLENGING_DOM}          ${BASE_URL}/challenging_dom
