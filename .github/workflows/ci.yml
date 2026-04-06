@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -26,6 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           rfbrowser init
+          node $(python -c "import Browser, os; print(os.path.join(os.path.dirname(Browser.__file__), 'wrapper', 'node_modules', '.bin', 'playwright'))") install-deps webkit
           
       - name: Lint (Robocop)
         run: robocop check .
