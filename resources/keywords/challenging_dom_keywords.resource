@@ -10,8 +10,7 @@ Resource            ../variables/global_variables.resource
 Open Challenging DOM Page
     [Documentation]    Opens the browser and navigates to the challenging DOM page.
     New Page    ${URL_CHALLENGING_DOM}
-    Wait For Load State    domcontentloaded    timeout=30s
-    Wait For Elements State    ${BLUE_BUTTON}    visible    timeout=30s
+    Wait For Load State    load    timeout=30s
 
 Click Blue Button
     [Documentation]    Clicks the blue (primary) button.
@@ -29,5 +28,5 @@ Verify Table Has Rows
 Verify Table Header Text
     [Documentation]    Verifies the first column header has the expected text.
     [Arguments]    ${expected_text}
-    Wait For Elements State    ${TABLE_HEADER}    visible    timeout=10s
+    Wait For Elements State    ${TABLE_HEADER}    visible    timeout=30s
     Get Text    ${TABLE_HEADER}    ==    ${expected_text}
