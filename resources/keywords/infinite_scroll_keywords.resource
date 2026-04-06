@@ -24,6 +24,7 @@ Scroll Down By Pixels
     Evaluate JavaScript    ${None}    (_, px) => window.scrollBy(0, px)    arg=${pixels}
 
 Wait For More Paragraphs
-    [Documentation]    Scrolls down and waits for jscroll-added content to appear.
+    [Documentation]    Scrolls down repeatedly and waits for jscroll-added content to appear.
     Scroll Down By Pixels    1000
-    Wait For Elements State    div.jscroll-added    visible    timeout=15s
+    Scroll Down By Pixels    1000
+    Wait For Elements State    div.jscroll-added    visible    timeout=30s

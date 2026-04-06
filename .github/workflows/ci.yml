@@ -40,12 +40,15 @@ jobs:
           - browser: chromium
             browser-label: Chromium Browsers
             webkit: false
+            exclude-tags: --exclude firefox --exclude webkit
           - browser: firefox
             browser-label: Firefox
             webkit: false
+            exclude-tags: --exclude chromium --exclude webkit
           - browser: webkit
             browser-label: WebKit Browsers
             webkit: true
+            exclude-tags: --exclude chromium --exclude firefox
 
     steps:
       - uses: actions/checkout@v4
@@ -79,6 +82,7 @@ jobs:
             --variablefile resources/environments/prod.yaml \
             --variable HEADLESS:True \
             --variable BROWSER:${{ matrix.browser }} \
+            ${{ matrix.exclude-tags }} \
             tests/
 
       - name: Upload Report
