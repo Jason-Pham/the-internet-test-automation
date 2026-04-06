@@ -14,10 +14,12 @@ Open Challenging DOM Page
 
 Click Blue Button
     [Documentation]    Clicks the blue (primary) button.
+    Wait For Elements State    ${BLUE_BUTTON}    visible    timeout=30s
     Click    ${BLUE_BUTTON}
 
 Click Red Button
     [Documentation]    Clicks the red (alert) button.
+    Wait For Elements State    ${RED_BUTTON}    visible    timeout=30s
     Click    ${RED_BUTTON}
 
 Verify Table Has Rows
