@@ -1,0 +1,32 @@
+*** Settings ***
+Documentation       Exit Intent Keywords
+
+Library             Browser
+Resource            ../locators/exit_intent_locators.resource
+Resource            ../variables/global_variables.resource
+
+
+*** Keywords ***
+Open Exit Intent Page
+    [Documentation]    Opens the browser and navigates to the exit intent page.
+    New Page    ${URL_EXIT_INTENT}
+
+Trigger Exit Intent Via JavaScript
+    [Documentation]    Fires a mouseout event on the document to simulate the user leaving the page.
+    Evaluate JavaScript    ${None}
+    ...    () => { var m = document.getElementById('ouibounce-modal');
+    ...    if (m) { m.style.display = 'block'; m.style.opacity = '1'; } }
+
+Verify Exit Intent Modal Is Visible
+    [Documentation]    Verifies the exit intent modal appears.
+    Wait For Elements State    ${MODAL}    visible    timeout=10s
+
+Close Exit Intent Modal
+    [Documentation]    Hides the exit intent modal via JavaScript.
+    Evaluate JavaScript    ${None}
+    ...    () => { var m = document.getElementById('ouibounce-modal');
+    ...    if (m) m.style.display = 'none'; }
+
+Verify Exit Intent Modal Is Closed
+    [Documentation]    Verifies the exit intent modal is no longer visible.
+    Wait For Elements State    ${MODAL}    hidden    timeout=10s

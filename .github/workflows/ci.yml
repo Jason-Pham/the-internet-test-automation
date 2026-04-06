@@ -5,40 +5,105 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
-  build:
+  unit-tests:
+    name: unit-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
-          
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install robotframework-robocop
+
+      - name: Lint (Robocop)
+        run: robocop check .
+
+  e2e:
+    name: E2E — ${{ matrix.browser-label }}
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - browser: chromium
+            browser-label: Chromium Browsers
+            webkit: false
+            exclude-tags: --exclude firefox --exclude webkit
+          - browser: firefox
+            browser-label: Firefox
+            webkit: false
+            exclude-tags: --exclude chromium --exclude webkit
+          - browser: webkit
+            browser-label: WebKit Browsers
+            webkit: true
+            exclude-tags: --exclude chromium --exclude firefox
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
+
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           rfbrowser init
+
+      - name: Install WebKit System Dependencies
+        if: matrix.webkit == true
+        run: |
           node $(python -c "import Browser, os; print(os.path.join(os.path.dirname(Browser.__file__), 'wrapper', 'node_modules', '.bin', 'playwright'))") install-deps webkit
-          
-      - name: Lint (Robocop)
-        run: robocop check .
-        
-      - name: Run Tests (Parallel)
-        run: pabot --testlevelsplit --listener allure_robotframework:results/allure -d results --variablefile resources/environments/prod.yaml --variable HEADLESS:True tests/
-        
+
+      - name: Run Tests — ${{ matrix.browser-label }}
+        run: |
+          pabot --testlevelsplit \
+            --listener allure_robotframework:results/allure \
+            -d results \
+            --variablefile resources/environments/prod.yaml \
+            --variable HEADLESS:True \
+            --variable BROWSER:${{ matrix.browser }} \
+            ${{ matrix.exclude-tags }} \
+            tests/
+
+      - name: Print Failed Tests
+        if: failure()
+        run: |
+          python3 -c "
+          import xml.etree.ElementTree as ET, sys
+          tree = ET.parse('results/output.xml')
+          for test in tree.getroot().iter('test'):
+              s = test.find('status')
+              if s is not None and s.get('status') == 'FAIL':
+                  print(f'FAIL: {test.get(\"name\")}')
+                  for m in test.iter('msg'):
+                      if m.text and any(k in (m.text or '') for k in ['Error','Timeout','!=','waiting','strict']):
+                          print(f'  {m.text[:300]}')
+                  print()
+          "
+
       - name: Upload Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: robot-report
+          name: robot-report-${{ matrix.browser }}
           path: results/
