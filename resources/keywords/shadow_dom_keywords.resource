@@ -14,7 +14,7 @@ Open Shadow DOM Page
 Get Shadow DOM Paragraph Text
     [Documentation]    Returns the text content of a paragraph inside a shadow DOM host element.
     [Arguments]    ${host_locator}
-    ${text}=    Get Text    ${host_locator} >>> p
+    ${text}=    Get Text    ${host_locator} >> p
     RETURN    ${text}
 
 Verify Shadow DOM Contains Text

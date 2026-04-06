@@ -10,21 +10,20 @@ Resource            ../variables/global_variables.resource
 Open WYSIWYG Editor Page
     [Documentation]    Opens the browser and navigates to the WYSIWYG editor page.
     New Page    ${URL_WYSIWYG_EDITOR}
+    Wait For Elements State    ${IFRAME}    visible    timeout=15s
 
 Clear And Type In Editor
-    [Documentation]    Clears the editor content and types new text.
+    [Documentation]    Sets the TinyMCE editor content via its JavaScript API.
     [Arguments]    ${text}
-    Click    ${IFRAME} >>> ${EDITOR_BODY}
-    Keyboard Key    press    Control+a
-    Keyboard Key    press    Delete
-    Type Text    ${IFRAME} >>> ${EDITOR_BODY}    ${text}
+    Evaluate JavaScript    ${None}    (_, t) => tinymce.activeEditor.setContent(t)    arg=${text}
 
 Verify Editor Contains Text
     [Documentation]    Verifies the WYSIWYG editor body contains the expected text.
     [Arguments]    ${expected_text}
-    Get Text    ${IFRAME} >>> ${EDITOR_BODY}    *=    ${expected_text}
+    ${content}=    Get Editor Text
+    Should Contain    ${content}    ${expected_text}
 
 Get Editor Text
-    [Documentation]    Returns the current text content of the WYSIWYG editor.
-    ${text}=    Get Text    ${IFRAME} >>> ${EDITOR_BODY}
+    [Documentation]    Returns the current plain-text content of the WYSIWYG editor.
+    ${text}=    Evaluate JavaScript    ${None}    () => tinymce.activeEditor.getContent({format: 'text'})
     RETURN    ${text}

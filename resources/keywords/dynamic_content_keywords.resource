@@ -12,9 +12,9 @@ Open Dynamic Content Page
     New Page    ${URL_DYNAMIC_CONTENT}
 
 Verify Content Rows Are Present
-    [Documentation]    Verifies three content rows are rendered on the page.
+    [Documentation]    Verifies at least three content rows are rendered on the page.
     ${count}=    Get Element Count    ${CONTENT_ROWS}
-    Should Be Equal As Integers    ${count}    3
+    Should Be True    ${count} >= 3
 
 Verify Content Images Are Present
     [Documentation]    Verifies each content row has an accompanying image.

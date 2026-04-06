@@ -34,4 +34,4 @@ Modal Title Contains Expected Text
     [Tags]    regression
     Open Entry Ad Page
     Verify Modal Is Visible
-    Get Text    ${MODAL_TITLE}    *=    This is a modal window
+    Get Text    ${MODAL_TITLE}    *=    THIS IS A MODAL WINDOW

@@ -13,9 +13,9 @@ Open Exit Intent Page
 
 Trigger Exit Intent Via JavaScript
     [Documentation]    Fires a mouseout event on the document to simulate the user leaving the page.
-    Evaluate JavaScript
-    ...    ${None}
-    ...    () => { document.dispatchEvent(new MouseEvent('mouseout', {bubbles: true, relatedTarget: null})); }
+    Evaluate JavaScript    ${None}
+    ...    () => { document.documentElement.dispatchEvent(
+    ...    new MouseEvent('mouseout', {bubbles: true, cancelable: true, relatedTarget: null})); }
 
 Verify Exit Intent Modal Is Visible
     [Documentation]    Verifies the exit intent modal appears.

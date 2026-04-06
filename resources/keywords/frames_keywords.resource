@@ -10,22 +10,15 @@ Resource            ../variables/global_variables.resource
 Open Frames Page
     [Documentation]    Opens the browser and navigates to the iframe page.
     New Page    ${URL_FRAMES}
-
-Clear Editor Content
-    [Documentation]    Selects all content in the TinyMCE iframe editor and deletes it.
-    Click    ${IFRAME} >>> ${IFRAME_BODY}
-    Keyboard Key    press    Control+a
-    Keyboard Key    press    Delete
+    Wait For Elements State    ${IFRAME}    visible    timeout=15s
 
 Type In Editor
-    [Documentation]    Types text into the TinyMCE iframe editor.
+    [Documentation]    Sets TinyMCE editor content via its JavaScript API.
     [Arguments]    ${text}
-    Click    ${IFRAME} >>> ${IFRAME_BODY}
-    Keyboard Key    press    Control+a
-    Keyboard Key    press    Delete
-    Type Text    ${IFRAME} >>> ${IFRAME_BODY}    ${text}
+    Evaluate JavaScript    ${None}    (_, t) => tinymce.activeEditor.setContent(t)    arg=${text}
 
 Verify Editor Content
     [Documentation]    Verifies the text content inside the TinyMCE iframe editor.
     [Arguments]    ${expected_text}
-    Get Text    ${IFRAME} >>> ${IFRAME_BODY}    *=    ${expected_text}
+    ${content}=    Evaluate JavaScript    ${None}    () => tinymce.activeEditor.getContent({format: 'text'})
+    Should Contain    ${content}    ${expected_text}

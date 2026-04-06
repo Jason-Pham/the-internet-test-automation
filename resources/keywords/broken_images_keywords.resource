@@ -14,8 +14,8 @@ Open Broken Images Page
 Get Broken Image Count
     [Documentation]    Returns the number of images with naturalWidth of 0 (broken).
     ${broken_count}=    Evaluate JavaScript
-    ...    ${ALL_IMAGES}
-    ...    (elements) => elements.filter(img => img.naturalWidth === 0).length
+    ...    ${None}
+    ...    () => Array.from(document.querySelectorAll('div.example img')).filter(img => img.naturalWidth === 0).length
     RETURN    ${broken_count}
 
 Verify Page Has Images

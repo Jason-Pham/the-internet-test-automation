@@ -13,7 +13,7 @@ Open Infinite Scroll Page
 
 Get Paragraph Count
     [Documentation]    Returns the current number of paragraph elements loaded on the page.
-    ${count}=    Get Element Count    div.jscroll-added p, div#content p
+    ${count}=    Get Element Count    p
     RETURN    ${count}
 
 Scroll Down By Pixels

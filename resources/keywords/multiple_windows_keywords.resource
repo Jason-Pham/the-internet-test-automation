@@ -14,7 +14,7 @@ Open Multiple Windows Page
 Click New Window Link And Switch
     [Documentation]    Clicks the "Click Here" link and switches to the newly opened page.
     Click    ${NEW_WINDOW_LINK}
-    Switch Page    NEW    timeout=10s
+    Switch Page    NEW
 
 Verify New Window Heading
     [Documentation]    Verifies the new window heading contains the expected text.

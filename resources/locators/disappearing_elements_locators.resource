@@ -3,7 +3,7 @@ Documentation       Disappearing Elements Locators
 
 
 *** Variables ***
-${NAV_MENU}       ul.nav
-${NAV_ITEMS}      ul.nav li
-${HOME_LINK}      ul.nav li:first-child a
-${GALLERY_LINK}   ul.nav a[href='/gallery']
+${NAV_MENU}       div.example ul
+${NAV_ITEMS}      div.example ul li
+${HOME_LINK}      div.example ul li:first-child a
+${GALLERY_LINK}   div.example ul a[href='/gallery']

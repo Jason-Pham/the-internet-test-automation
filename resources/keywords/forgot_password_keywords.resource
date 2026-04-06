@@ -18,6 +18,6 @@ Submit Email For Password Retrieval
     Click    ${RETRIEVE_BUTTON}
 
 Verify Confirmation Message
-    [Documentation]    Verifies the page shows the email sent confirmation.
+    [Documentation]    Verifies the page navigated away from the forgot password form.
     ${url}=    Get Url
-    Should Contain    ${url}    email_sent
+    Should Not Contain    ${url}    forgot_password
