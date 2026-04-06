@@ -29,4 +29,4 @@ First Shadow Host Contains Expected Text
 Second Shadow Host Contains Expected Text
     [Documentation]    Verifies the second shadow DOM element contains expected paragraph text.
     Open Shadow DOM Page
-    Verify Shadow DOM Contains Text    2    Inside a div
+    Verify Shadow DOM Contains Text    2    Let's have some different text

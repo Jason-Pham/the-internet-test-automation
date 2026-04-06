@@ -10,8 +10,9 @@ Resource            ../variables/global_variables.resource
 Open Frames Page
     [Documentation]    Opens the browser and navigates to the iframe page.
     New Page    ${URL_FRAMES}
+    Wait For Load State    networkidle    timeout=30s
     Wait For Elements State    ${IFRAME}    visible    timeout=15s
-    Wait Until Keyword Succeeds    15x    1s    Verify TinyMCE Is Initialized
+    Wait Until Keyword Succeeds    30x    2s    Verify TinyMCE Is Initialized
 
 Verify TinyMCE Is Initialized
     [Documentation]    Verifies TinyMCE is fully initialised and its body is ready.

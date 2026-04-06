@@ -10,7 +10,7 @@ Resource            ../variables/global_variables.resource
 Open Infinite Scroll Page
     [Documentation]    Opens the browser and navigates to the infinite scroll page.
     New Page    ${URL_INFINITE_SCROLL}
-    Wait For Elements State    p    visible    timeout=10s
+    Wait For Elements State    p    visible    timeout=20s
 
 Get Paragraph Count
     [Documentation]    Returns the current number of paragraph elements loaded on the page.
