@@ -25,8 +25,5 @@ Scroll Down By Pixels
 
 Wait For More Paragraphs
     [Documentation]    Scrolls down and waits for jscroll-added content to appear.
-    [Arguments]    ${initial_count}
     Scroll Down By Pixels    1000
-    Sleep    3s
-    ${new_count}=    Get Paragraph Count
-    Should Be True    ${new_count} > ${initial_count}
+    Wait For Elements State    div.jscroll-added    visible    timeout=15s

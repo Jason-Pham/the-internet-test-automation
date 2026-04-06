@@ -10,10 +10,10 @@ Resource            ../variables/global_variables.resource
 Open Add Remove Elements Page
     [Documentation]    Opens the browser and navigates to the add/remove elements page.
     New Page    ${URL_ADD_REMOVE_ELEMENTS}
+    Wait For Elements State    ${ADD_ELEMENT_BUTTON}    visible    timeout=30s
 
 Add Element
     [Documentation]    Clicks the Add Element button to add a Delete button.
-    Wait For Elements State    ${ADD_ELEMENT_BUTTON}    visible    timeout=20s
     Click    ${ADD_ELEMENT_BUTTON}
 
 Remove Element

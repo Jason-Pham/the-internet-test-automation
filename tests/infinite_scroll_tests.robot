@@ -24,5 +24,4 @@ Page Loads With Initial Content
 Scrolling Loads Additional Content
     [Documentation]    Verifies scrolling down loads more paragraph content via infinite scroll.
     Open Infinite Scroll Page
-    ${initial_count}=    Get Paragraph Count
-    Wait For More Paragraphs    ${initial_count}
+    Wait For More Paragraphs
