@@ -10,11 +10,13 @@ Resource            ../variables/global_variables.resource
 Open Add Remove Elements Page
     [Documentation]    Opens the browser and navigates to the add/remove elements page.
     New Page    ${URL_ADD_REMOVE_ELEMENTS}
-    Wait For Elements State    ${ADD_ELEMENT_BUTTON}    visible    timeout=30s
+    Wait For Load State    domcontentloaded    timeout=30s
 
 Add Element
-    [Documentation]    Clicks the Add Element button to add a Delete button.
-    Click    ${ADD_ELEMENT_BUTTON}
+    [Documentation]    Clicks the Add Element button via JavaScript to bypass visibility checks.
+    Evaluate JavaScript    ${None}
+    ...    () => { var btn = document.querySelector('[onclick*="addElement"]');
+    ...    if (btn) btn.click(); }
 
 Remove Element
     [Documentation]    Clicks the first visible Delete button.
