@@ -9,7 +9,9 @@ Resource            ../variables/global_variables.resource
 *** Keywords ***
 Open Browser To Login Page
     [Documentation]    Opens the browser and navigates to the login URL.
-    Open Browser    ${URL_LOGIN}    chromium    headless=${HEADLESS}
+    [Arguments]    ${browser}=${BROWSER}
+    New Browser    ${browser}    headless=${HEADLESS}
+    New Context
     New Page    ${URL_LOGIN}
 
 Submit Credentials
@@ -31,8 +33,8 @@ Verify Login Success
 
 Login Scenario
     [Documentation]    Executes a login flow and verifies the expected outcome.
-    [Arguments]    ${username}    ${password}    ${expected_message}
-    Open Browser To Login Page
+    [Arguments]    ${username}    ${password}    ${expected_message}    ${browser}=${BROWSER}
+    Open Browser To Login Page    ${browser}
     Submit Credentials    ${username}    ${password}
     IF    '${expected_message}' == 'You logged into a secure area!'
         Verify Login Success
