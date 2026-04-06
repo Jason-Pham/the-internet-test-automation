@@ -1,5 +1,6 @@
 *** Settings ***
-Documentation       Challenging DOM tests — verifies interaction with a page whose DOM is designed to challenge automation.
+Documentation       Challenging DOM tests — verifies interaction with a page
+...                 whose DOM is designed to challenge automation.
 
 Library             Browser
 Resource            ../resources/variables/global_variables.resource

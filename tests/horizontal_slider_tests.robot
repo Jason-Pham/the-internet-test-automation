@@ -21,7 +21,7 @@ Slider Is Present On Page
     Open Horizontal Slider Page
     Wait For Elements State    ${SLIDER}    visible
 
-Set Slider To Value 2.5
+Set Slider To Value Two Point Five
     [Documentation]    Sets the slider to 2.5 and verifies the displayed value updates.
     [Tags]    smoke
     Open Horizontal Slider Page

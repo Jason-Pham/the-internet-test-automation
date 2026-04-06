@@ -11,19 +11,17 @@ Suite Teardown      Close Browser
 Test Setup          New Context
 Test Teardown       Close Context
 
-Test Tags           forms    file-upload
+Test Tags           forms    file-upload    smoke
 
 
 *** Test Cases ***
 Upload Page Has File Input
     [Documentation]    Verifies the file upload page renders the file input element.
-    [Tags]    smoke
     Open File Upload Page
     Wait For Elements State    ${FILE_INPUT}    visible
 
 Upload A Text File
     [Documentation]    Uploads a temporary text file and verifies its name is shown after upload.
-    [Tags]    smoke
     Open File Upload Page
     ${temp_file}=    Evaluate    __import__('tempfile').mkstemp(suffix='.txt', prefix='rf_upload_')[1]
     Evaluate    open('${temp_file}', 'w').write('Robot Framework upload test')
