@@ -27,4 +27,5 @@ Verify Table Has Rows
 Verify Table Header Text
     [Documentation]    Verifies the first column header has the expected text.
     [Arguments]    ${expected_text}
+    Wait For Elements State    ${TABLE_HEADER}    visible    timeout=10s
     Get Text    ${TABLE_HEADER}    ==    ${expected_text}

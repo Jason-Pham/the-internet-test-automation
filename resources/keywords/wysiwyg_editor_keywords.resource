@@ -21,10 +21,9 @@ Verify TinyMCE Is Initialized
     Should Be True    ${ready}    TinyMCE not yet initialized
 
 Clear And Type In Editor
-    [Documentation]    Sets the TinyMCE editor content by manipulating the body DOM directly.
+    [Documentation]    Sets the TinyMCE editor content directly via the editor body's innerHTML.
     [Arguments]    ${text}
-    Evaluate JavaScript    ${None}
-    ...    (_, t) => tinymce.activeEditor.getBody().innerHTML = '<p>' + t + '</p>'    arg=${text}
+    Evaluate JavaScript    ${None}    () => tinymce.activeEditor.getBody().innerHTML = '<p>${text}</p>'
 
 Verify Editor Contains Text
     [Documentation]    Verifies the WYSIWYG editor body contains the expected text.
@@ -33,7 +32,7 @@ Verify Editor Contains Text
     Should Contain    ${content}    ${expected_text}
 
 Get Editor Text
-    [Documentation]    Returns the current plain-text content of the WYSIWYG editor.
+    [Documentation]    Returns the current text content of the WYSIWYG editor body.
     ${text}=    Evaluate JavaScript    ${None}
-    ...    () => tinymce.activeEditor.getBody().innerText.trim()
+    ...    () => tinymce.activeEditor.getBody().textContent.trim()
     RETURN    ${text}

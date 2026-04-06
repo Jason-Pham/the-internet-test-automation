@@ -21,14 +21,13 @@ Verify TinyMCE Is Initialized
     Should Be True    ${ready}    TinyMCE not yet initialized
 
 Type In Editor
-    [Documentation]    Sets TinyMCE editor content by manipulating the body DOM directly.
+    [Documentation]    Sets TinyMCE editor content directly via the editor body's innerHTML.
     [Arguments]    ${text}
-    Evaluate JavaScript    ${None}
-    ...    (_, t) => tinymce.activeEditor.getBody().innerHTML = '<p>' + t + '</p>'    arg=${text}
+    Evaluate JavaScript    ${None}    () => tinymce.activeEditor.getBody().innerHTML = '<p>${text}</p>'
 
 Verify Editor Content
     [Documentation]    Verifies the text content inside the TinyMCE iframe editor.
     [Arguments]    ${expected_text}
     ${content}=    Evaluate JavaScript    ${None}
-    ...    () => tinymce.activeEditor.getBody().innerText.trim()
+    ...    () => tinymce.activeEditor.getBody().textContent.trim()
     Should Contain    ${content}    ${expected_text}
