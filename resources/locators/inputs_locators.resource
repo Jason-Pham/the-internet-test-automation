@@ -3,4 +3,4 @@ Documentation       Inputs Locators
 
 
 *** Variables ***
-${NUMBER_INPUT}    css:input[type='number']
+${NUMBER_INPUT}    input[type='number']

@@ -3,4 +3,4 @@ Documentation       A/B Testing Locators
 
 
 *** Variables ***
-${ABTEST_HEADING}    css:h3
+${ABTEST_HEADING}    h3

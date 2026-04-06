@@ -19,7 +19,7 @@ Three Figures Are Present
     [Documentation]    Verifies three hoverable figure elements exist on the page.
     [Tags]    smoke
     Open Hovers Page
-    ${count}=    Get Element Count    css:div.figure
+    ${count}=    Get Element Count    div.figure
     Should Be Equal As Integers    ${count}    3
 
 Hover Figure 1 Reveals Caption

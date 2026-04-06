@@ -3,5 +3,5 @@ Documentation       Redirect Locators
 
 
 *** Variables ***
-${REDIRECT_BUTTON}    css:a#redirect
-${PAGE_HEADING}       css:h3
+${REDIRECT_BUTTON}    a#redirect
+${PAGE_HEADING}       h3

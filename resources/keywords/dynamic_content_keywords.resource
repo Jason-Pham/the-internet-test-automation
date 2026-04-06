@@ -24,5 +24,5 @@ Verify Content Images Are Present
 Get Row Text
     [Documentation]    Returns the text content of the nth content row (1-based).
     [Arguments]    ${row_index}
-    ${text}=    Get Text    css:div#content div.row:nth-child(${row_index}) div.large-10
+    ${text}=    Get Text    div#content div.row:nth-child(${row_index}) div.large-10
     RETURN    ${text}

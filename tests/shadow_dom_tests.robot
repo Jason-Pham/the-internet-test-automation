@@ -18,7 +18,7 @@ Test Tags           javascript    shadow-dom    smoke
 Shadow DOM Page Loads
     [Documentation]    Verifies the shadow DOM page loads with custom element hosts.
     Open Shadow DOM Page
-    ${count}=    Get Element Count    css:my-paragraph
+    ${count}=    Get Element Count    my-paragraph
     Should Be True    ${count} > 0
 
 First Shadow Host Contains Expected Text

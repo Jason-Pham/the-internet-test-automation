@@ -6,4 +6,4 @@ Documentation       File Upload Locators
 ${FILE_INPUT}          id=file-upload
 ${SUBMIT_BUTTON}       id=file-submit
 ${UPLOADED_FILES}      id=uploaded-files
-${UPLOAD_HEADING}      css:h3
+${UPLOAD_HEADING}      h3
